@@ -1,14 +1,15 @@
 {
-  "redirects": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/",
-      "destination": "https://github.com/Dreamyplayer/api-spotify"
+      "src": "./dist/index.js",
+      "use": "@vercel/node"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/src/index"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }

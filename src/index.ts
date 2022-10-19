@@ -1,10 +1,8 @@
 import compression from 'compression';
-import { config } from 'dotenv';
 import express, { Express, json } from 'express';
 import logger from 'morgan';
 import { env } from 'node:process';
 import { svgComponent } from './card.js';
-config();
 
 const app: Express = express();
 
@@ -18,7 +16,7 @@ app.use(logger('tiny'));
 app.use(json());
 app.use(compression());
 
-app.use('/', async (_req, res) => {
+app.use('/api', async (_req, res) => {
   const player = await svgComponent();
 
   res.setHeader('Content-Type', 'image/svg+xml');
