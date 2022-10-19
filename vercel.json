@@ -2,13 +2,13 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "https://github.com/akellbl4/spotify-badge"
+      "destination": "https://github.com/Dreamyplayer/api-spotify"
     }
   ],
   "rewrites": [
     {
       "source": "/",
-      "destination": "/index"
+      "destination": "/src/index"
     }
   ]
 }
