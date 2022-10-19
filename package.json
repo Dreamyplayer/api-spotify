@@ -17,22 +17,22 @@
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.1.0",
-    "vercel": "^28.4.11"
+    "vercel": "^28.4.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-angular": "^17.1.0",
-    "@types/node": "^18.7.16",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "@vercel/node": "^2.5.25",
-    "eslint": "^8.23.0",
+    "@types/node": "^18.11.2",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "@vercel/node": "^2.5.26",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.0",
+    "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4"
   },
   "husky": {
     "hooks": {
