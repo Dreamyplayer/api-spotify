@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 import { Buffer } from 'node:buffer';
-import { musicData, MusicType } from './Music.js';
+import { musicData, MusicType } from './Music';
 
 export const wait = (milliseconds: number) => new Promise(resolve => setTimeout(resolve, milliseconds));
 

@@ -2,15 +2,13 @@ import compression from 'compression';
 import express, { Express, json } from 'express';
 import logger from 'morgan';
 import { env } from 'node:process';
-import { svgComponent } from './card.js';
+import { svgComponent } from './card';
 
 const app: Express = express();
 
-const PORT = env.PORT || 8080;
-const NODE_ENV = env.NODE_ENV || 'Development';
+const PORT = env.PORT || 8000;
 
 app.set('port', PORT);
-app.set('env', NODE_ENV);
 
 app.use(logger('tiny'));
 app.use(json());

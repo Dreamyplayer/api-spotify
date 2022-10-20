@@ -1,5 +1,5 @@
-import { formatDuration, randomMusic, timeSplit, urltoBase64 } from './functions.js';
-import type { MusicType } from './Music.js';
+import { formatDuration, randomMusic, timeSplit, urltoBase64 } from './functions';
+import type { MusicType } from './Music';
 
 let music: MusicType;
 let randomAwaitTime = 0;
