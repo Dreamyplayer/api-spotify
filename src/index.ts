@@ -16,7 +16,11 @@ app.use(logger('tiny'));
 app.use(json());
 app.use(compression());
 
-app.use('/api', async (_req, res) => {
+app.get('/', (_req, res) => {
+  res.send('API running 🥳');
+});
+
+app.get('/api', async (_req, res) => {
   const player = await svgComponent();
 
   res.setHeader('Content-Type', 'image/svg+xml');

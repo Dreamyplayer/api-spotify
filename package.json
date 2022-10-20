@@ -8,7 +8,7 @@
   "private": "true",
   "scripts": {
     "dev": "tsc && node .",
-    "start": "vercel dev",
+    "start": "tsc && vercel dev",
     "deploy": "vercel deploy --prod",
     "prepare": "husky install",
     "prettier": "prettier --write .",
