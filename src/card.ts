@@ -15,6 +15,7 @@ setInterval(() => {
 }, randomAwaitTime);
 
 setInterval(() => {
+  // Updates Width or Progress
   const diff = Math.round(new Date().getTime() - startTime);
 
   let val = Math.round((diff / randomAwaitTime) * 150);
@@ -23,9 +24,8 @@ setInterval(() => {
     val = 0;
   }
   width = val;
-}, 1e3);
 
-setInterval(() => {
+  // Updates Timeplayed in seconds
   timePlayed++;
   if (timePlayed >= randomAwaitTime / 1e3 || width === 0) {
     timePlayed = 0;
