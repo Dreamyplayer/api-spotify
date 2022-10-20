@@ -5,8 +5,7 @@ let music: MusicType;
 let randomAwaitTime = 0;
 let startTime = 0;
 let width = 0;
-let time = 0;
-let timePlayed: string;
+let timePlayed = 0;
 randomAwaitTime = timeSplit(randomMusic().duration);
 
 setInterval(() => {
@@ -27,12 +26,10 @@ setInterval(() => {
 }, 1e3);
 
 setInterval(() => {
-  time++;
-  if (time >= randomAwaitTime / 1e3 || width === 0) {
-    time = 0;
+  timePlayed++;
+  if (timePlayed >= randomAwaitTime / 1e3 || width === 0) {
+    timePlayed = 0;
   }
-
-  timePlayed = formatDuration(time);
 }, 1e3);
 
 // SVG Component
@@ -99,10 +96,10 @@ export const svgComponent = async (): Promise<string> => {
       Now Playing:
   </text>
   <text x="120" y="40" class="small">
-      ${music?.title ?? 'undefined'}
+      ${music?.title.length >= 30 ? music?.title.slice(0, 27) + '...' : music?.title ?? 'undefined'}
   </text>
   <text x="120" y="55" class="small">
-      (feat. ${music?.artist ?? 'undefined'})
+      (feat. ${music?.artist.length >= 25 ? music?.title.slice(0, 22) + '...' : music?.artist ?? 'undefined'})
   </text>
 
   <!-- Progress Bar -->
@@ -115,7 +112,7 @@ export const svgComponent = async (): Promise<string> => {
       <!-- Adding 120 to rect width - both will be in same position -->
       <circle cx="${width + 120}" cy="96" r="2" fill="#D9D9D9" />
       <text x="120" y="105" class="number">
-          ${timePlayed}
+          ${formatDuration(timePlayed)}
       </text>
       <text x="258" y="105" class="number">
           ${music?.duration ?? '00:00'}
