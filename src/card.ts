@@ -111,9 +111,9 @@ export const svgComponent = async (): Promise<string> => {
       <!-- Circle -->
       <!-- Adding 120 to rect width - both will be in same position -->
       <circle cx="${width + 120}" cy="96" r="2" fill="#D9D9D9" />
-      <text x="120" y="105" class="number">
+      <!-- <text x="120" y="105" class="number">
           ${formatDuration(timePlayed)}
-      </text>
+      </text> -->
       <text x="258" y="105" class="number">
           ${music?.duration ?? '00:00'}
       </text>
