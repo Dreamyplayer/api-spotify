@@ -7,6 +7,7 @@ let startTime = 0;
 let width = 0;
 let timePlayed = 0;
 randomAwaitTime = timeSplit(randomMusic().duration);
+const startingSong = randomMusic();
 
 setInterval(() => {
   music = randomMusic();
@@ -41,10 +42,7 @@ export const svgComponent = async (): Promise<string> => {
 
   <!-- Artist Image -->
   <image clip-path="inset(0% round 10px)" preserveAspectRatio="none" height="100" width="100" x="10" y="10"
-      href="data:image/jpeg;base64,${await urltoBase64(
-        music?.coverUrl ??
-          'https://media.discordapp.net/attachments/851533693657808926/1031329898108825700/spotifyLoading.png',
-      )}">
+      href="data:image/jpeg;base64,${await urltoBase64(music?.coverUrl ?? startingSong.coverUrl)}">
   </image>
 
   <!-- Spotify Logo -->
@@ -96,10 +94,10 @@ export const svgComponent = async (): Promise<string> => {
       Now Playing:
   </text>
   <text x="120" y="40" class="small">
-      ${music?.title.length >= 30 ? music?.title.slice(0, 27) + '...' : music?.title ?? 'undefined'}
+      ${music?.title.length >= 30 ? music?.title.slice(0, 27) + '...' : music?.title ?? startingSong.title}
   </text>
   <text x="120" y="55" class="small">
-      (feat. ${music?.artist.length >= 25 ? music?.title.slice(0, 22) + '...' : music?.artist ?? 'undefined'})
+      (feat. ${music?.artist.length >= 25 ? music?.title.slice(0, 22) + '...' : music?.artist ?? startingSong.artist})
   </text>
 
   <!-- Progress Bar -->
@@ -115,7 +113,7 @@ export const svgComponent = async (): Promise<string> => {
           ${formatDuration(timePlayed)}
       </text> -->
       <text x="258" y="105" class="number">
-          ${music?.duration ?? '00:00'}
+          ${music?.duration ?? startingSong.duration}
       </text>
   </g>
 </svg>
