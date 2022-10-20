@@ -9,31 +9,33 @@ let time = 0;
 let timePlayed: string;
 randomAwaitTime = timeSplit(randomMusic().duration);
 
-setInterval(() => {
-  music = randomMusic();
-  randomAwaitTime = timeSplit(music?.duration);
-  startTime = new Date().getTime();
-}, randomAwaitTime);
+(() => {
+  setInterval(() => {
+    music = randomMusic();
+    randomAwaitTime = timeSplit(music?.duration);
+    startTime = new Date().getTime();
+  }, randomAwaitTime);
 
-setInterval(() => {
-  const diff = Math.round(new Date().getTime() - startTime);
+  setInterval(() => {
+    const diff = Math.round(new Date().getTime() - startTime);
 
-  let val = Math.round((diff / randomAwaitTime) * 150);
+    let val = Math.round((diff / randomAwaitTime) * 150);
 
-  if (val >= 150) {
-    val = 0;
-  }
-  width = val;
-}, 1e3);
+    if (val >= 150) {
+      val = 0;
+    }
+    width = val;
+  }, 1e3);
 
-setInterval(() => {
-  time++;
-  if (time >= randomAwaitTime / 1e3 || width === 0) {
-    time = 0;
-  }
+  setInterval(() => {
+    time++;
+    if (time >= randomAwaitTime / 1e3 || width === 0) {
+      time = 0;
+    }
 
-  timePlayed = formatDuration(time);
-}, 1e3);
+    timePlayed = formatDuration(time);
+  }, 1e3);
+})();
 
 // SVG Component
 export const svgComponent = async (): Promise<string> => {
