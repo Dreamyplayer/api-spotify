@@ -18,12 +18,8 @@ app.get('/', (_req, res) => {
   res.send('API running 🥳');
 });
 
-let player: string;
-setInterval(async () => {
-  player = await svgComponent();
-}, 1e3);
-
 app.get('/api', async (_req, res) => {
+  const player = await svgComponent();
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('Cache-Control', 's-maxage=1');
   res.status(200).send(player);
